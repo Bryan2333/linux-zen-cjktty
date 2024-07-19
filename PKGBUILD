@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
 pkgbase=linux-zen-cjktty
-pkgver=6.9.9.zen1
+pkgver=6.9.10.zen1
 pkgrel=1
 pkgdesc='Linux ZEN (with cjktty-patches)'
 url='https://github.com/zen-kernel/zen-kernel'
@@ -39,11 +39,11 @@ validpgpkeys=(
   83BC8889351B5DEBBB68416EB8AC08600F108CDF  # Jan Alexander Steffens (heftig)
 )
 # https://www.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc
-sha256sums=('2be05b487eb239a3bf687d628a8f104177d09c310f00bcc2a5e50f1733421eb9'
+sha256sums=('efd12e335fa67d13a3eae30e4b7b7546e74b8ccc90682e4c3fffab0b22654da1'
             'SKIP'
-            'c5064d6506a1b1ce99becd2d8f9edeb1f308a009b3a31f4c07a5e7c11c879e30'
+            'f15f1509f75ec6da1441d0a48464090260096ae3a28229cc5cc4a2055313771a'
             'SKIP'
-            'b25aa8189e7a5d9a71e56badb5fd49121ffb25cd67ad7824a6f279825126373e'
+            '646c327deb460305040f3a49b4e232c05e6f6fa5c49322dd515e85224ea774d6'
             '6714bf3968392e29f19e44514d490ad7ec718c3897003210fd1e499017dd429d'
             'c648ff21f0a5714743bbae85d6c6e1ed2bf961b6bca976d4c6b4c8d3f6b2739f')
 
@@ -227,3 +227,4 @@ for _p in "${pkgname[@]}"; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
+
