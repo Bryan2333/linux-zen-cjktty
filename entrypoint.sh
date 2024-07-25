@@ -26,7 +26,7 @@ chown builduser:builduser -R linux-zen
 
 cd linux-zen || exit 1
 
-builder_do "git reset --hard 5ecafac"
+builder_do "git reset --hard 95579b2"
 
 for KEYFILE in keys/pgp/*.asc
 do 
