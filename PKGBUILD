@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
 pkgbase=linux-zen-cjktty
-pkgver=6.10.6.zen1
+pkgver=6.10.7.zen1
 pkgrel=1
 pkgdesc='Linux ZEN (with cjktty-patches)'
 url='https://github.com/zen-kernel/zen-kernel'
@@ -39,11 +39,11 @@ validpgpkeys=(
   83BC8889351B5DEBBB68416EB8AC08600F108CDF  # Jan Alexander Steffens (heftig)
 )
 # https://www.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc
-sha256sums=('e0d50d5b74f8599375660e79f187af7493864dba5ff6671b14983376a070b3d1'
+sha256sums=('900d567ff01824708ce24c3b37faaef03e6f6145411dd447a6ff2edc8c5db3a9'
             'SKIP'
-            '7d5878144f93e21fcc8afd16e8d98544817365191c2b99fc7db733fe0117b793'
+            '1b8bcb1adacc07f7d31d159a908708212c9247c8fa9515e55c08390423622826'
             'SKIP'
-            'd1ee80da99051facf1d3985c08649061be7b4d5059c0dc7e63d5af2d31e1a448'
+            'dbee94b24beea3ada6a321933e02301521485503ed85b0209607b8c04f5d52d2'
             '6714bf3968392e29f19e44514d490ad7ec718c3897003210fd1e499017dd429d'
             'c648ff21f0a5714743bbae85d6c6e1ed2bf961b6bca976d4c6b4c8d3f6b2739f')
 
