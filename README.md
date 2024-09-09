@@ -1,6 +1,6 @@
 # linux-zen-cjktty
 
-Linux ZEN with [cjktty-patches](https://github.com/zhmars/cjktty-patches)
+Linux ZEN with [cjktty-patches](https://github.com/bigshans/cjktty-patches)
 
 ## 改动
 
