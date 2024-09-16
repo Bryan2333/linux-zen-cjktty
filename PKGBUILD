@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
 pkgbase=linux-zen-cjktty
-pkgver=6.10.10.zen1
+pkgver=6.11.zen1
 pkgrel=1
 pkgdesc='Linux ZEN (with cjktty-patches)'
 url='https://github.com/zen-kernel/zen-kernel'
@@ -15,6 +15,9 @@ makedepends=(
   pahole
   perl
   python
+  rust
+  rust-bindgen
+  rust-src
   tar
   xz
 )
@@ -39,11 +42,11 @@ validpgpkeys=(
   83BC8889351B5DEBBB68416EB8AC08600F108CDF  # Jan Alexander Steffens (heftig)
 )
 # https://www.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc
-sha256sums=('e687e735b5eb9efb6d67b42433c93fc9118106a995514f062652873b5e809bcd'
+sha256sums=('55d2c6c025ebc27810c748d66325dd5bc601e8d32f8581d9e77673529bdacb2e'
             'SKIP'
-            'fc66084eecc225a2898cc3d23098aa6cc155f392a4a4355baa393bf1bd6e89f1'
+            '6561d4c940e6613a914d2c84446c5003cc672708dd802023ae771474f8a6fa39'
             'SKIP'
-            '7a8105d34f5741b46a42e91364bb811ccca83a84333bfb4a99e1bb5fb7ac99fa'
+            '5a4e0c3ac42cd7b247f3ce3e7ec5bbe00d01b5d0fbdbbe4ade0ae036e9cfe7b2'
             '6714bf3968392e29f19e44514d490ad7ec718c3897003210fd1e499017dd429d'
             'c648ff21f0a5714743bbae85d6c6e1ed2bf961b6bca976d4c6b4c8d3f6b2739f')
 
@@ -70,9 +73,9 @@ prepare() {
 
   echo "Setting config..."
   cp ../config .config
-  echo "Setting microarchitecture CONFIG_GENERIC_CPU3..."
+  echo "Setting microarchitecture CONFIG_MAMD_CPU_V3..."
   scripts/config --disable CONFIG_GENERIC_CPU
-  scripts/config --enable CONFIG_GENERIC_CPU3
+  scripts/config --enable CONFIG_MAMD_CPU_V3
   echo "Setting O2 level compile optimization..."
   scripts/config --disable CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE_O3
   scripts/config --enable CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE
@@ -146,6 +149,7 @@ _package-headers() {
   install -Dt "$builddir/kernel" -m644 kernel/Makefile
   install -Dt "$builddir/arch/x86" -m644 arch/x86/Makefile
   cp -t "$builddir" -a scripts
+  ln -srt "$builddir" "$builddir/scripts/gdb/vmlinux-gdb.py"
 
   # required when STACK_VALIDATION is enabled
   install -Dt "$builddir/tools/objtool" tools/objtool/objtool
