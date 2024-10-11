@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
 pkgbase=linux-zen-cjktty
-pkgver=6.11.2.zen1
+pkgver=6.11.3.zen1
 pkgrel=1
 pkgdesc='Linux ZEN (with cjktty-patches)'
 url='https://github.com/zen-kernel/zen-kernel'
@@ -39,11 +39,11 @@ validpgpkeys=(
   83BC8889351B5DEBBB68416EB8AC08600F108CDF  # Jan Alexander Steffens (heftig)
 )
 # https://www.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc
-sha256sums=('ec9ef7a0b9cebb55940e1ef87a1f9e1004b10456a119dc386bb3e565b0d39c42'
+sha256sums=('057263d0afc17d5253794afd3d239ba4da4aa734b22fa36c1665f41b95449b73'
             'SKIP'
-            'd1284d5047b20ed39d9f9918fe4775dffc29f6fa90b0feec5711be516931a931'
+            '25f7bcede9f510b7e434b006c43c59c7148d8be6d22ad3818e3f8f82bbebc069'
             'SKIP'
-            'f335f59b8c7a892afa9365f136e1851365218e7b3aeb6a983eeab080ab3c3d21'
+            '8ed219450d64f45bfb08999c112c7a48c1038246a5121482bcbbe0cb18f25489'
             '6714bf3968392e29f19e44514d490ad7ec718c3897003210fd1e499017dd429d'
             'c648ff21f0a5714743bbae85d6c6e1ed2bf961b6bca976d4c6b4c8d3f6b2739f')
 
@@ -70,9 +70,6 @@ prepare() {
 
   echo "Setting config..."
   cp ../config .config
-  echo "Setting microarchitecture CONFIG_MAMD_CPU_V3..."
-  scripts/config --disable CONFIG_GENERIC_CPU
-  scripts/config --enable CONFIG_MAMD_CPU_V3
   echo "Setting O2 level compile optimization..."
   scripts/config --disable CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE_O3
   scripts/config --enable CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE
@@ -85,7 +82,7 @@ prepare() {
 
 build() {
   export MAKEFLAGS="-j$(nproc) --quiet"
-  export KCFLAGS="-mtune=generic"
+  export KCFLAGS=" -march=x86-64-v3 -mtune=generic"
   export KCPPFLAGS="$KCFLAGS"
 
   cd $_srcname
