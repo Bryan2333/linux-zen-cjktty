@@ -23,7 +23,7 @@ jobs:
 
        - name: Build Package
          run: |
-           docker run -t -v ${{ github.workspace }}:/build archlinux/archlinux:latest /bin/bash /build/entrypoint.sh
+           docker run -t -v ${{ github.workspace }}:/build archlinux:base-devel /bin/bash /build/entrypoint.sh
 
        - name: Get tag name
          run: echo "TAG_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV

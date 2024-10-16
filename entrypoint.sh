@@ -9,8 +9,8 @@ function builder_do() {
 pacman-key --init
 pacman-key --populate
 pacman -Syu --noconfirm
-pacman -S --noconfirm --needed base-devel wget git llvm clang
-rm -rf /var/cache/pacman/pkg/*
+pacman -S --noconfirm --needed wget git
+pacman -Scc --noconfirm
 
 useradd -m -s /bin/bash builduser
 chown builduser:builduser -R /build
